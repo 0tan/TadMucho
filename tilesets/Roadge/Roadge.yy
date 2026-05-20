@@ -1,0 +1,41 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Roadge",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":8,
+    "SerialiseWidth":8,
+    "TileCompressedData":[-64,0,],
+    "TileDataFormat":1,
+  },
+  "name":"Roadge",
+  "out_columns":2,
+  "out_tilehborder":1,
+  "out_tilevborder":1,
+  "parent":{
+    "name":"Tile Sets",
+    "path":"folders/Tile Sets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Roadsprite",
+    "path":"sprites/Roadsprite/Roadsprite.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":0.0,
+  "tileHeight":128,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":128,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":6,
+}

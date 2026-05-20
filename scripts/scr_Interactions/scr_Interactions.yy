@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_Interactions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_Interactions",
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
