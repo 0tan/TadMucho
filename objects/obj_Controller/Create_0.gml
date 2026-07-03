@@ -39,6 +39,7 @@ global.club_world_y = 0
 global.BGM_PAUSE_SEC = 3
 
 _bgm_handle = -1
+_bgm_muted = false
 
 _tile_px = 128
 _club_tile_cols = 3

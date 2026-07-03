@@ -1,3 +1,17 @@
+// M toggles music: mute stops playback; unmute restarts the track.
+if (keyboard_check_pressed(ord("M"))) {
+	_bgm_muted = !_bgm_muted
+	if (_bgm_muted) {
+		if (_bgm_handle != -1 && audio_is_playing(_bgm_handle)) {
+			audio_stop_sound(_bgm_handle)
+		}
+		_bgm_handle = -1
+		alarm[1] = -1
+	} else {
+		MusicPlayBgm()
+	}
+}
+
 if (global.game_won || global.game_over) {
 	exit
 }

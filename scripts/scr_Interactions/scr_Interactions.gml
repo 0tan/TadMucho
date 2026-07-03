@@ -534,6 +534,9 @@ function MusicPlayBgm() {
 		return
 	}
 	with (obj_Controller) {
+		if (_bgm_muted) {
+			exit
+		}
 		if (_bgm_handle != -1 && audio_is_playing(_bgm_handle)) {
 			audio_stop_sound(_bgm_handle)
 		}
