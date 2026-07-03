@@ -12,12 +12,6 @@ if (_autograph_lock_count > 0) {
 	exit
 }
 
-// Reserved for non-autograph interactions (e.g. Yeong) in v2.
-if (_interaction_kind != "") {
-	depth = -y
-	exit
-}
-
 var _left = keyboard_check(vk_left) or keyboard_check(ord("A"))
 var _right = keyboard_check(vk_right) or keyboard_check(ord("D"))
 var _up = keyboard_check(vk_up) or keyboard_check(ord("W"))
@@ -66,11 +60,18 @@ if (_d < 0.2) {
 	if (_speedy > 0.01) _speedy -= 0.01 else if (_speedy < -0.01) _speedy += 0.01 else _speedy = 0
 }
 
-if (_speed > _maxspeed) {
-	_speedx *= (_maxspeed / _speed)
-	_speedy *= (_maxspeed / _speed)
-} else if (_speed < 0.1) {
+var _max_use = _maxspeed * Tad_PullSpeedMult()
+if (_speed > _max_use) {
+	_speedx *= (_max_use / _speed)
+	_speedy *= (_max_use / _speed)
+} else if (_speed < 0.1 && !Tad_PullDebuffActive()) {
 	sprite_index = spr_Tad_Mucho_Stand
+}
+
+if (Tad_PullDebuffActive()) {
+	if (sprite_index != spr_Tad_Mucho_Slip) {
+		sprite_index = spr_Tad_Mucho_Pull
+	}
 }
 
 var _maps = global.g_wall_tilemaps
@@ -79,6 +80,8 @@ if (_maps != undefined) {
 } else {
 	MoveTilesAndShops(id, _speedx, _speedy, -1)
 }
+
+Tad_SeparateFromHalmeoni()
 
 depth = -y
 if (_speedx > 0.02) image_xscale = 1

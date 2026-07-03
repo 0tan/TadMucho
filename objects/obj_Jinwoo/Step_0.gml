@@ -9,7 +9,7 @@ if (!instance_exists(obj_Tad)) {
 }
 
 var _t = obj_Tad
-var _dist = point_distance(x, y, _t.x, _t.y)
+var _dist = CharDistInst(id, _t)
 var _f = global.fame
 var _notice_stun_len = max(25, 73 - floor(min(_f, 80) * 0.49))
 var _chase_spd = (2.2 + min(_f * 0.045, 3.5)) * 0.75
@@ -154,30 +154,7 @@ if (_maps != undefined) {
 x = clamp(x, _xl, _xr)
 y = clamp(y, _yt, _yb)
 
-// Light separation from other Jinwoos (legacy crowd spacing).
-var _list = ds_list_create()
-var _sep_r = 38
-var _num = collision_circle_list(x, y, _sep_r, obj_Jinwoo, false, true, _list, false)
-if (_num > 0) {
-	for (var _i = 0; _i < _num; _i++) {
-		var _o = _list[| _i]
-		if (_o.id == id) {
-			continue
-		}
-		var _dx = x - _o.x
-		var _dy = y - _o.y
-		var _dd = point_distance(x, y, _o.x, _o.y)
-		if (_dd < 0.5) {
-			_dd = 0.5
-		}
-		if (_dd < _sep_r) {
-			var _push = (_sep_r - _dd) * 0.38
-			x += (_dx / _dd) * _push
-			y += (_dy / _dd) * _push
-		}
-	}
-}
-ds_list_destroy(_list)
+FanCrowdSeparate(id)
 
 x = clamp(x, _xl, _xr)
 y = clamp(y, _yt, _yb)

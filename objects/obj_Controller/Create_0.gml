@@ -13,7 +13,22 @@ global.inner_top = 128
 global.inner_bottom = max(256, room_height - 128)
 global.fame = 0
 global.FAME_SPAWN_CAP = 200
-global.JINWOO_FAME_REWARD = 10
+global.JINWOO_FAME_MIN = 0
+global.JINWOO_FAME_REWARD = 20
+global.HALMEONI_FAME_MIN = 0
+global.YEONG_FAME_MIN = 80
+global.MYUNG_FAME_MIN = 150
+global.MYUNG_FAME_REWARD = 20
+global.MYUNG_LEAD_DIST = 300
+global.MYUNG_FLASH_HALF = 192
+global.MYUNG_FLASH_SIZE = 384
+global.YEONG_FLY_FAME_REWARD = 10
+global.YEONG_HUG_FAME_REWARD = 20
+global.HALMEONI_SPAWN_AT_0 = 0.5
+global.HALMEONI_SPAWN_AT_350 = 0.15
+global.HALMEONI_SPAWN_FAME_TOP = 350
+global.HALMEONI_SLOW_RADIUS = 72
+global.HALMEONI_SPEED_CAP = 0.7
 global.CAM_LOGIC_W = 1280
 global.CAM_LOGIC_H = 640
 global.cam_lead_frac = 0.5
@@ -21,6 +36,9 @@ global.g_wall_col_map = -1
 global.g_wall_tilemaps = undefined
 global.club_world_x = 0
 global.club_world_y = 0
+global.BGM_PAUSE_SEC = 3
+
+_bgm_handle = -1
 
 _tile_px = 128
 _club_tile_cols = 3
@@ -92,7 +110,7 @@ BakeCorridorToTilemaps = function() {
 	}
 
 	var mid_tile_y = (inner_y0 + inner_y1) * 0.5
-	global.corridor_y = mid_tile_y * _tile_px + _tile_px * 0.5
+	global.corridor_y = mid_tile_y * _tile_px + _tile_px * 0.5 + 24
 
 	// Goal strip (right end): solid top wall + centered 3x3 club notch; no shops.
 	var _goal_tile_cols = max(ceil(1920 / _tile_px), _club_tile_cols + 2)
@@ -165,10 +183,10 @@ BakeCorridorToTilemaps = function() {
 	global.g_wall_col_map = map_col
 	global.g_wall_tilemaps = [map_w, map_col]
 
-	// Walkable inner rect (floor tiles only); used for Jinwoo spawn + clamping.
+	// Walkable inner rect (floor); instance x/y are feet (bottom-center origins).
 	var _m = 44
 	global.inner_left = inner_x0 * _tile_px + _m
 	global.inner_right = (inner_x1 + 1) * _tile_px - _m
-	global.inner_top = inner_y0 * _tile_px + _m
-	global.inner_bottom = (inner_y1 + 1) * _tile_px - _m
+	global.inner_top = inner_y0 * _tile_px + _m + 24
+	global.inner_bottom = (inner_y1 + 1) * _tile_px - _m + 24
 }

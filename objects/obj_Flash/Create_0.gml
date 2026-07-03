@@ -1,0 +1,15 @@
+flash_surf = -1
+flash_comp_surf = -1
+gui_x = 0
+gui_y = 0
+gui_w = 384
+gui_h = 384
+flash_phase = 0
+alpha = 1
+burst_frames = 18
+burst_timer = 18
+hold_frames = 72
+hold_timer = 72
+shrink_frames = 48
+shrink_timer = 48
+shrink_mask_count = 8

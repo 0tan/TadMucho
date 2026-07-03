@@ -3,7 +3,7 @@ if (global.game_won || global.game_over) {
 	exit
 }
 
-if (instance_number(obj_Jinwoo) >= jinwoo_cap) {
+if (FanNpcCount() >= fan_cap) {
 	alarm[0] = JinwooSpawnDelayFrames()
 	exit
 }
@@ -90,7 +90,7 @@ for (var _try = 0; _try < 28; _try++) {
 		_offscreen = (_xx < _vxw - _spawn_margin || _xx > _vxw + _vww + _spawn_margin || _yy < _vyw - _spawn_margin || _yy > _vyw + _vhh + _spawn_margin)
 	}
 	var _forward_ok = ((_xx - _t.x) * _fwd > 100)
-	if (_offscreen && _forward_ok && point_distance(_xx, _yy, _t.x, _t.y) > 120) {
+	if (_offscreen && _forward_ok && CharDist(_xx, _yy, _t.x, _t.y) > 120) {
 		_placed = true
 		break
 	}
@@ -110,6 +110,6 @@ if (!_placed) {
 	}
 }
 
-// v1: tier-1 only; later: roll NpcTier from global.fame and branch.
-instance_create_layer(_xx, _yy, global.g_inst_layer, obj_Jinwoo)
+var _fan_obj = PickFanSpawnObject()
+instance_create_layer(_xx, _yy, global.g_inst_layer, _fan_obj)
 alarm[0] = JinwooSpawnDelayFrames()

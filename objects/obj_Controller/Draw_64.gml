@@ -53,13 +53,24 @@ if (instance_exists(obj_Tad)) {
 		_vx = floor(camera_get_view_x(view_camera[0]))
 		_vy = floor(camera_get_view_y(view_camera[0]))
 	}
-	var _club_dx = "n/a"
 	var _club_inst = instance_find(obj_Club, 0)
+	var _club_dx = "n/a"
+	var _club_dx_num = 0
 	if (_club_inst != noone) {
-		_club_dx = string(floor(_club_inst.x - _tx))
+		_club_dx_num = _club_inst.x - _tx
+		_club_dx = string(floor(_club_dx_num))
 	}
 	var _line = "Tad world: (" + string(_tx) + ", " + string(_ty) + ")   view TL: (" + string(_vx) + ", " + string(_vy) + ")   club dX: " + _club_dx
 	draw_text_transformed(16, 78, _line, _hud, _hud, 0)
+
+	if (_club_inst != noone && _club_dx_num > 800) {
+		draw_set_halign(fa_right)
+		draw_set_valign(fa_middle)
+		draw_set_color(make_color_rgb(0, 255, 255))
+		draw_text_transformed(_gw - 16, _gh * 0.5, string(floor(_club_dx_num / 20)) + " >", 1.15, 1.15, 0)
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+	}
 } else {
 	draw_text_transformed(16, 78, "Tad world: (no instance)", _hud, _hud, 0)
 }

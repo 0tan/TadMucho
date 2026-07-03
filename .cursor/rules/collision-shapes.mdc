@@ -1,0 +1,12 @@
+---
+description: Collision uses explicit shapes only; never sprite pixel masks
+alwaysApply: true
+---
+
+# Collision shapes (TADMUCHO)
+
+- **Do not** use sprite pixel masks for gameplay collision: no `mask_index`, no `spriteMaskId` on objects, no `place_meeting` / `instance_place` that relies on a sprite mask.
+- **Do** use shapes the user specifies: axis-aligned boxes (`x`, `y`, `_col_w`, `_col_h`), bbox fields, tile-aligned grids, or other explicit geometry they describe.
+- When adding blockers (shops, props, NPCs), define footprint variables at create/bake time and test overlap with rectangle (or user-given) math — same pattern as `CorridorShopOverlapAt` in `scr_WallgeTiles.gml`.
+- Sprites are visual only unless the user explicitly asks for a different collision approach.
+- If collision shape is unclear, **ask** for width/height/origin rather than defaulting to `spr_*` masks.

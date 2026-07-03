@@ -7,6 +7,7 @@ _brakerate = 0.1
 _interaction_kind = ""
 _interaction_partner = noone
 _autograph_lock_count = 0
+_hug_slow_stacks = 0
 
 _my_walls = -1
 
