@@ -1,46 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TAD MUCHO</title>
-	<style>
-		html, body {
-			margin: 0;
-			height: 100%;
-			background: #0d0d14;
-			color: #e8e8f0;
-			font-family: -apple-system, Segoe UI, Roboto, sans-serif;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-		}
-		.card {
-			max-width: 520px;
-			padding: 2rem;
-		}
-		h1 {
-			font-size: 2.4rem;
-			letter-spacing: 0.08em;
-			margin: 0 0 0.5rem;
-			color: #00ffff;
-		}
-		code {
-			background: #1c1c28;
-			padding: 0.15em 0.4em;
-			border-radius: 4px;
-			color: #ffe14d;
-		}
-		a { color: #00ffff; }
-	</style>
-</head>
-<body>
-	<div class="card">
-		<h1>TAD MUCHO</h1>
-		<p>GitHub Pages is live. The playable build hasn't been deployed here yet.</p>
-		<p>Export the GameMaker <strong>HTML5</strong> build into this <code>docs/</code> folder
-		(overwriting this file), then commit and push. The game will load here automatically.</p>
-	</div>
-</body>
+
+    <!-- Custom PreHead code is injected here -->
+    
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta charset="utf-8"/>
+
+        <!-- Builtin injector for disabling cache -->
+        <meta http-equiv="pragma" content="no-cache"/>
+
+        <!-- Set the title bar of the page -->
+        <title>TADMUCHO</title>
+
+        <!-- Custom PreStyle code is injected here -->
+        
+
+        <!-- Set the background colour of the document -->
+        <style>
+            body {
+                background: #0;
+                color: #cccccc;
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+
+            canvas {
+                image-rendering: optimizeSpeed;
+                -webkit-interpolation-mode: nearest-neighbor;
+                -ms-touch-action: none;
+                touch-action: none;
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+            :-webkit-full-screen #canvas {
+                width: 100%;
+                height: 100%;
+            }
+            :-webkit-full-screen {
+                width: 100%;
+                height: 100%;
+            }
+            
+            /* Custom Runner Styles */
+            div.gm4html5_div_class {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+            div.gm4html5_login {
+                padding: 20px;
+                position: absolute;
+                border: solid 2px #000000;
+                background-color: #404040;
+                color:#00ff00;
+                border-radius: 15px;
+                box-shadow: #101010 20px 20px 40px;
+            }
+            div.gm4html5_cancel_button {
+                float: right;
+            }
+            div.gm4html5_login_button {
+                float: left;
+            }
+            div.gm4html5_login_header {
+                text-align: center;
+            }
+            /* END - Custom Runner Styles */
+            
+        </style>
+
+        <!-- Custom PostStyle code is injected here -->
+        
+
+        <!-- Builtin injector for injecting flurry analytics code -->
+        
+    </head>
+
+    <!-- Custom PostHead code is injected here -->
+    
+
+    <!-- Custom PreBody code is injected here -->
+    
+
+    <body>
+        <!-- Custom BodyStart code is injected here -->
+        
+
+        <div class="gm4html5_div_class" id="gm4html5_div_id">
+            
+            <!-- Builtin injector for splash screen -->
+            
+
+            <!-- Custom PreCanvas code is injected here -->
+            
+
+            <!-- Create the canvas element the game draws to -->
+            <canvas id="canvas" width="1920" height="1080" >
+                
+                <p>Your browser doesn't support HTML5 canvas.</p>
+            </canvas>
+            
+            <!-- Custom PostCanvas code is injected here -->
+            
+        </div>
+
+        <!-- Run the game code -->
+        <script type="text/javascript" src="html5game/TADMUCHO.js?cachebust=1649749100"></script>
+
+        <!-- Builtin injector for injecting runner path -->
+        
+
+        <script>window.onload = GameMaker_Init;</script>
+
+        <!-- Builtin injector for injecting google analytics code -->
+        
+
+        <!-- Custom BodyEnd code is injected here -->
+        
+    </body>
+
+    <!-- Custom PostBody code is injected here -->
+    
 </html>
